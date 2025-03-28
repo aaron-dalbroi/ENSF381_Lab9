@@ -1,8 +1,14 @@
 function HousePricePredictor() {
+    
+    function Predict(e) {
+        e.preventDefault(); // Prevent the default form submission behavior
+        console.log("Form submitted");
+    }
+
     return (
         <div className="container_predictor">
             <h2>House Price Predictor</h2>
-            <form className="form">
+            <form className="form" onSubmit={Predict}>
                 <div className="form-group">
                     <label htmlFor="city">City:</label>
                     <input className="input_field" type="text" id="city" name="city" required />
@@ -58,12 +64,11 @@ function HousePricePredictor() {
                     <label htmlFor="pets">Pets:</label>
                     <input type="checkbox" id="pets" name="pets" />
                 </div>
-                <button className="login_button" type="submit">Submit</button>
+                <button className="predictor_button" type="submit">Predict</button>
                 <div className="prediction_result">
                     <p>Predicted Rent Price:</p>
                 </div>
             </form>
-
         </div>
     );
 }
