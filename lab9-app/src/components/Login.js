@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [formData, setFormData] = useState({ username: "", password: "" });
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,8 +24,8 @@ function Login() {
 
             const data = await response.json();
             if (response.ok) {
-                console.log("Login successful:", data);
-                // Handle successful login (e.g., redirect or update UI)
+                alert("Login successful!");
+                navigate("/predict"); // Navigate to the predict page
             } else {
                 setErrorMessage(data.message || "Invalid username or password");
             }
